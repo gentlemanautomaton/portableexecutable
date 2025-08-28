@@ -13,6 +13,8 @@ import (
 )
 
 var (
+	// ErrMissingResourceTable is returned by [NewReader] if it is asked to
+	// operate on a portable executable that doesn't have a resource table.
 	ErrMissingResourceTable = errors.New("the portable executable does not have a resource table")
 )
 
@@ -31,8 +33,8 @@ type Reader struct {
 
 // NewReader creates and initializes a new resource directory [Reader] that
 // reads from portable executable [portableexecutable.Reader] pe. It returns
-// ErrMissingResourceTable if the portable executable does not have a resource
-// table.
+// [ErrMissingResourceTable] if the portable executable does not have a
+// resource table.
 //
 // TODO: Try to develop some sort of interface that removes the dependency
 // on the portableexecutable package. This is challenging because the
