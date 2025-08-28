@@ -9,6 +9,16 @@ type ID struct {
 	number uint32
 }
 
+// NewNumericID returns an ID with the given number.
+func NewNumericID(number uint32) ID {
+	return ID{number: number}
+}
+
+// NewStringID returns an ID with the given string.
+func NewStringID(str string) ID {
+	return ID{str: str}
+}
+
 // IsNumeric returns true if the ID is numeric.
 func (id ID) IsNumeric() bool {
 	return id.str == ""
